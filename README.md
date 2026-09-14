@@ -1,9 +1,6 @@
 # Tienda Escolar
 
-Aplicativo de consola desarrollado para el caso de estudio de **Programación
-Aplicada** (Ingeniería Electrónica, Universidad Distrital Francisco José de
-Caldas), cuyo objetivo es practicar el trabajo colaborativo con control de
-versiones.
+
 
 ## Funcionalidades
 
@@ -21,11 +18,7 @@ tienda_escolar/
 └── README.md
 ```
 
-## Cómo ejecutar
 
-```bash
-python3 main.py
-```
 
 ## Integrantes
 
