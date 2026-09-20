@@ -22,4 +22,5 @@ tienda_escolar/
 
 ## Integrantes
 
-- (agregar nombres del equipo)
+- Nicolas Camilo Alvarado Pachon
+- Sebastian Obando Soto
