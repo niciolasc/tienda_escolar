@@ -1,34 +1,34 @@
 """
-Módulo de productos: registrar y mostrar productos de la tienda escolar.
+Módulo de productos: gestión del inventario (catálogo) de la tienda escolar.
 """
 
+# Memoria pre-cargada con productos
+_inventario = [
+    {"nombre": "Empanada", "precio": 2500.0},
+    {"nombre": "Jugo Natural", "precio": 2000.0},
+    {"nombre": "Paquete de Papas", "precio": 1800.0},
+    {"nombre": "Sandwich", "precio": 3500.0},
+    {"nombre": "Chocoramo", "precio": 2200.0}
+]
 
-def registrar_producto(productos):
-    """Solicita al usuario el nombre y precio de un producto y lo agrega
-    a la lista de productos registrados."""
-    nombre = input("Nombre del producto: ").strip()
+def obtener_inventario():
+    """Devuelve la lista actual de productos en el catálogo."""
+    return _inventario
 
-    while True:
-        precio_str = input(f"Precio de '{nombre}': ").strip()
-        try:
-            precio = float(precio_str)
-            if precio < 0:
-                print("El precio no puede ser negativo.")
-                continue
-            break
-        except ValueError:
-            print("Ingrese un precio válido (número).")
+def registrar_producto_logica(nombre, precio_str):
+    """
+    Valida y agrega un nuevo producto al inventario.
+    Lanza ValueError si los datos son inválidos.
+    """
+    nombre = nombre.strip()
+    if not nombre:
+        raise ValueError("El nombre del producto no puede estar vacío.")
 
-    productos.append({"nombre": nombre, "precio": precio})
-    print(f"Producto '{nombre}' registrado con éxito.")
+    try:
+        precio = float(precio_str)
+        if precio < 0:
+            raise ValueError("El precio no puede ser un valor negativo.")
+    except ValueError:
+        raise ValueError("Ingrese un precio numérico válido.")
 
-
-def mostrar_productos(productos):
-    """Muestra en consola todos los productos registrados."""
-    if not productos:
-        print("No hay productos registrados todavía.")
-        return
-
-    print("\n--- Productos registrados ---")
-    for i, producto in enumerate(productos, start=1):
-        print(f"{i}. {producto['nombre']} - ${producto['precio']:.2f}")
+    _inventario.append({"nombre": nombre, "precio": precio})
