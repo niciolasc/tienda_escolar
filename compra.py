@@ -1,16 +1,12 @@
 """
-Módulo de compra: calcula el total de una compra a partir de los
-productos registrados.
+Módulo de compra: calcula el total a partir de los productos en el carrito.
 """
 
+def calcular_total(carrito):
+    """
+    Calcula y retorna el total sumando el precio de los productos del carrito.
+    """
+    if not carrito:
+        return 0.0
 
-def calcular_total(productos):
-    """Calcula y muestra el total de la compra sumando el precio de
-    todos los productos registrados."""
-    if not productos:
-        print("No hay productos registrados para calcular el total.")
-        return
-
-    total = sum(p["precio"] for p in productos)
-    print(f"\nTotal de la compra: ${total:.2f}")
-    return total
+    return sum(p["precio"] for p in carrito)
